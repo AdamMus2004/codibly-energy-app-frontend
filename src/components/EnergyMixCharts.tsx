@@ -10,7 +10,6 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#82ca9d'
 
 const EnergyMixCharts: React.FC<Props> = ({ data }) => {
 
-
     const prepareChartData = (sourceMap: Record<string, number>) => {
         return Object.entries(sourceMap).map(([name, value]) => ({
             name: name,
@@ -21,7 +20,6 @@ const EnergyMixCharts: React.FC<Props> = ({ data }) => {
     return (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
             {data.map((dayMix) => (
-
                 <div key={dayMix.date} style={{
                     border: '1px solid #ccc',
                     borderRadius: '8px',
@@ -47,9 +45,9 @@ const EnergyMixCharts: React.FC<Props> = ({ data }) => {
                                     outerRadius={80}
                                     paddingAngle={2}
                                     dataKey="value"
-                                    label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                                    label={({ name, percent }) => `${name} ${((percent ?? 0) * 100).toFixed(0)}%`}
                                 >
-                                    {prepareChartData(dayMix.averageSourcePercentages).map((entry, index) => (
+                                    {prepareChartData(dayMix.averageSourcePercentages).map((_, index) => (
                                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                                     ))}
                                 </Pie>
