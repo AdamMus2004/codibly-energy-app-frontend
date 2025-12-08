@@ -64,9 +64,6 @@ function App() {
                 <ChargingOptimizer />
             </section>
 
-            <footer style={{ marginTop: '50px', textAlign: 'center', color: '#999', fontSize: '0.9em', borderTop: '1px solid #eee', paddingTop: '20px' }}>
-                &copy; 2025 Codibly IT Academy Task
-            </footer>
         </div>
     );
 }
