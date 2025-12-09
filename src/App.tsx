@@ -31,22 +31,22 @@ function App() {
     return (
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '20px', fontFamily: 'Arial, sans-serif' }}>
             <header style={{ textAlign: 'center', marginBottom: '40px' }}>
-                <h1 style={{ color: '#333' }}>⚡ Energy Mix UK & Optimizer</h1>
+                <h1 style={{ color: '#333' }}>Energy Mix UK & Optimizer</h1>
                 <p style={{ color: '#666' }}>
-                    Codibly Recruitment Task - Java Spring Boot + React TypeScript
+                    Java Spring Boot + React TypeScript
                 </p>
             </header>
 
             <section style={{ marginBottom: '50px' }}>
                 <h2 style={{ borderBottom: '2px solid #eee', paddingBottom: '10px', textAlign: 'center' }}>
-                    📊 Energy Mix (3 Days)
+                    Energy Mix (3 Days)
                 </h2>
 
                 {loading && <p style={{ textAlign: 'center', fontSize: '1.2em' }}>Loading API data...</p>}
 
                 {error && (
                     <div style={{ color: 'red', textAlign: 'center', padding: '20px', border: '1px solid red', borderRadius: '5px', backgroundColor: '#fff5f5' }}>
-                        ⚠️ {error}
+                        {error}
                     </div>
                 )}
 
@@ -58,7 +58,7 @@ function App() {
 
             <section>
                 <h2 style={{ borderBottom: '2px solid #eee', paddingBottom: '10px', textAlign: 'center' }}>
-                    🔋 Charging Optimizer
+                    Charging Optimizer
                 </h2>
 
                 <ChargingOptimizer />

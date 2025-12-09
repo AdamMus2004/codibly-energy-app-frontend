@@ -49,7 +49,7 @@ const ChargingOptimizer: React.FC = () => {
             backgroundColor: '#f9f9f9',
             textAlign: 'center'
         }}>
-            <h2>🚗 Optimal Charging</h2>
+            <h2>Optimal Charging</h2>
             <p>Enter charging duration (1-6h) to find the cleanest window in the next 48h.</p>
 
             <div style={{ margin: '20px 0' }}>
