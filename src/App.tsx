@@ -18,8 +18,8 @@ function App() {
                 const data = await fetchDailyEnergyMix();
                 setDailyMix(data);
             } catch (err) {
-                console.error("Błąd pobierania danych:", err);
-                setError("Nie udało się połączyć z backendem. Sprawdź, czy serwer Java działa na porcie 8080.");
+                console.error("Error fetching data:", err);
+                setError("Failed to connect to the backend. Please check if the Java server is running on port 8080.");
             } finally {
                 setLoading(false);
             }
@@ -33,16 +33,16 @@ function App() {
             <header style={{ textAlign: 'center', marginBottom: '40px' }}>
                 <h1 style={{ color: '#333' }}>⚡ Energy Mix UK & Optimizer</h1>
                 <p style={{ color: '#666' }}>
-                    Aplikacja rekrutacyjna Codibly - Java Spring Boot + React TypeScript
+                    Codibly Recruitment Task - Java Spring Boot + React TypeScript
                 </p>
             </header>
 
             <section style={{ marginBottom: '50px' }}>
                 <h2 style={{ borderBottom: '2px solid #eee', paddingBottom: '10px', textAlign: 'center' }}>
-                    📊 Miks Energetyczny (3 dni)
+                    📊 Energy Mix (3 Days)
                 </h2>
 
-                {loading && <p style={{ textAlign: 'center', fontSize: '1.2em' }}>Ładowanie danych z API...</p>}
+                {loading && <p style={{ textAlign: 'center', fontSize: '1.2em' }}>Loading API data...</p>}
 
                 {error && (
                     <div style={{ color: 'red', textAlign: 'center', padding: '20px', border: '1px solid red', borderRadius: '5px', backgroundColor: '#fff5f5' }}>
@@ -58,7 +58,7 @@ function App() {
 
             <section>
                 <h2 style={{ borderBottom: '2px solid #eee', paddingBottom: '10px', textAlign: 'center' }}>
-                    🔋 Optymalizator Ładowania
+                    🔋 Charging Optimizer
                 </h2>
 
                 <ChargingOptimizer />

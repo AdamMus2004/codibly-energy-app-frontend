@@ -14,7 +14,7 @@ const ChargingOptimizer: React.FC = () => {
 
     const handleCalculate = async () => {
         if (hours < 1 || hours > 6) {
-            setError("Proszę podać czas w zakresie od 1 do 6 godzin.");
+            setError("Please enter a duration between 1 and 6 hours.");
             return;
         }
 
@@ -27,7 +27,7 @@ const ChargingOptimizer: React.FC = () => {
             setResult(data);
         } catch (err) {
             console.error(err);
-            setError("Wystąpił błąd podczas pobierania danych. Upewnij się, że backend działa.");
+            setError("Error fetching data. Ensure the backend is running.");
         } finally {
             setLoading(false);
         }
@@ -49,12 +49,12 @@ const ChargingOptimizer: React.FC = () => {
             backgroundColor: '#f9f9f9',
             textAlign: 'center'
         }}>
-            <h2>🚗 Optymalne ładowanie</h2>
-            <p>Podaj długość ładowania (1-6h), aby znaleźć najczystsze okno w ciągu najbliższych 48h.</p>
+            <h2>🚗 Optimal Charging</h2>
+            <p>Enter charging duration (1-6h) to find the cleanest window in the next 48h.</p>
 
             <div style={{ margin: '20px 0' }}>
                 <label style={{ marginRight: '10px', fontWeight: 'bold' }}>
-                    Czas trwania (h):
+                    Duration (h):
                 </label>
 
                 <input
@@ -80,7 +80,7 @@ const ChargingOptimizer: React.FC = () => {
                         cursor: loading ? 'not-allowed' : 'pointer'
                     }}
                 >
-                    {loading ? 'Obliczanie...' : 'Znajdź okno'}
+                    {loading ? 'Calculating...' : 'Find Window'}
                 </button>
             </div>
 
@@ -94,13 +94,13 @@ const ChargingOptimizer: React.FC = () => {
                     border: '1px solid #b2f5ea',
                     borderRadius: '5px'
                 }}>
-                    <h3 style={{ color: '#2c7a7b', marginTop: 0 }}>Najlepszy czas na ładowanie:</h3>
+                    <h3 style={{ color: '#2c7a7b', marginTop: 0 }}>Best time to charge:</h3>
 
                     <p><strong>Start:</strong> {formatTime(result.startDateTime)}</p>
-                    <p><strong>Koniec:</strong> {formatTime(result.endDateTime)}</p>
+                    <p><strong>End:</strong> {formatTime(result.endDateTime)}</p>
 
                     <p style={{ fontSize: '1.2em', color: 'green', marginTop: '10px' }}>
-                        Średni udział czystej energii: <br/>
+                        Average clean energy share: <br/>
                         <strong style={{ fontSize: '1.4em' }}>{result.averageCleanEnergyPercentage.toFixed(1)}%</strong>
                     </p>
                 </div>
