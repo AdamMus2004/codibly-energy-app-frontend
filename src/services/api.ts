@@ -1,15 +1,19 @@
 import type {DailyEnergyMix, OptimalChargingWindow} from "../types";
 import axios from "axios";
 
-const API_BASE_URL = 'http://localhost:8080/api/energy-mix';
+const BASE_DOMAIN = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+
+const api = axios.create({
+    baseURL: `${BASE_DOMAIN}/api/energy-mix`
+});
 
 export const fetchDailyEnergyMix = async (): Promise<DailyEnergyMix[]> => {
-    const response = await axios.get<DailyEnergyMix[]>(`${API_BASE_URL}/daily`);
+
+    const response = await api.get<DailyEnergyMix[]>('/daily');
     return response.data;
 };
-
 export const fetchOptimalChargingWindow = async (hours: number): Promise<OptimalChargingWindow> => {
-    const response = await axios.get<OptimalChargingWindow>(`${API_BASE_URL}/optimal-window`, {
+    const response = await api.get<OptimalChargingWindow>('/optimal-window', {
         params: { hours }
     });
     return response.data;
